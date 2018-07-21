@@ -1,0 +1,62 @@
+<!DOCTYPE <!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <script src="main.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <style>
+        #main{
+            margin: 20px;
+        }
+        h4{
+            display: inline-block;
+        }
+        a.back{
+            display: inline-block;
+            margin-left: 50%;
+            font-size: large;
+        }
+        a.logout{
+            display: inline-block;
+            margin-left: 10px;
+            font-size: large;
+        }
+        div#this_trip{
+            margin: 20px;
+        }
+        div#other_users{
+            margin: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div id="main">
+        <div id="head">
+            <a class="back" href="/travels">Back</a>
+            <a class="logout" href="/logout"> Logout</a>
+        </div><br><br> 
+        <div id="this_trip">
+            <h3>{{trip.destination}}</h3><br> 
+            <p>Planned By: {{trip.creator.firstname}}</p>
+            <p>Description: {{trip.description}}</p>
+            <p>Travel Date From: {{trip.date_from}}</p>
+            <p>Travel Date To: {{trip.date_to}}</p>
+        </div><br><br> 
+        <div id="other_users">
+            <h3>Other Users Joining the Trip:</h3><br> 
+            {% for user in joined_users %}
+            <p>{{ user.firstname}} {{ user.lastname }}</p>
+            {% endfor %}
+
+
+        </div>
+    </div>
+    
+</body>
+</html>
